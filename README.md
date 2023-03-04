@@ -884,3 +884,11 @@ composer update
 php artisan config:clear
 
 ```
+
+```bash
+## updaet vendor 
+php artisan vendor:publish    
+choice 234                 
+```
+
+update to server germany

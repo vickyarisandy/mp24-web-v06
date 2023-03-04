@@ -43,6 +43,8 @@ use App\Http\Controllers\keluhanPasienController;
 // upload
 use App\Http\Controllers\FileController;
 
+use App\Http\Controllers\BotManController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -125,7 +127,7 @@ Route::get('/admin', [AdminController::class,'index'])->name('admin');
 
 // Route::get('/', function () {
 //     // return view('auth.login');
-    
+
 
 // });
 
@@ -200,7 +202,7 @@ Route::middleware(['auth', 'user-access:pasienParent'])->group(function () {
 
     // Route::get('/pasienP/home',[HomeController::class, 'pasienParentHome'])->name('pasienP.home');
     Route::get('/pasienP/home/user',[HomeController::class, 'pasienParentHomeUser'])->name('pasienP.home.user');
-   
+
     //riwayat
     Route::get('/pasien/keluhan',[PasienpController::class,'tambahKeluhan'])->name('pasien.keluhan');
     Route::get('/riwayat/manfaat',[PasienpController::class,'tambahKeluhan'])->name('riwayat.manfaat');
@@ -210,7 +212,7 @@ Route::middleware(['auth', 'user-access:pasienParent'])->group(function () {
     //turunan
     Route::get('/turunan/tambah',[PasienpController::class,'tambahParent'])->name('turunan.tambah');
     Route::get('/turunan/daftar',[PasienpController::class,'dataParent'])->name('turunan.daftar');
-    
+
     Route::post('pasienp',[PasienpController::class],'store')->name('pasienp.store');
     // Route::resource('diagnosa',diagnosaDokterController::class);
     Route::post('keluhan/pasien', [keluhanPasienController::class,'store'])->name('formulir_data');
@@ -259,12 +261,12 @@ Route::middleware(['auth_fasten', 'user-access:dokter'])->group(function () {
 Route::middleware(['auth_fasten', 'user-access:apotik'])->group(function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/apotik/home', [HomeController::class, 'apotikHome'])->name('apotik.home');
-    
+
     Route::get('apotik/getobt',[ApotikController::class,'getObt'])->name('apotik.home.obt');
 
     Route::post('/apotik/home',[ApotikController::class,'tambahObat'])->name('apotikobat');
-    
-    
+
+
     Route::get('apt/rsp', [ApotikController::class,'resRsp'])->name('resRsp');
     Route::get('apt/krm', [ApotikController::class,'krm'])->name('krm');
     Route::get('apt/lap', [ApotikController::class,'lap'])->name('lap');
@@ -289,12 +291,12 @@ Route::middleware(['auth_fasten', 'user-access:validator'])->group(function () {
     Route::get('/validator/home', [HomeController::class, 'validatorHome'])->name('validator.home');
     Route::get('/validator/penguna_baru', [ValidatorController::class, 'validatorPage'])->name('validator.validatorPage');
 
-    //restar pc 
+    //restar pc
     Route::get('changeStatus', [ValidatorController::class, 'changeStatus']);
     Route::get('changeStatusProfil', [ValidatorController::class, 'changeStatusProfil']);
 
     Route::get('validasi',[ValidatorController::class,'show']);
-    
+
 
 });
 
@@ -318,3 +320,5 @@ Route::middleware(['auth_fasten', 'user-access:administrator'])->group(function 
 
 });
 
+
+Route::match(['get', 'post'], '/botman', [BotManController::class, 'handle']);

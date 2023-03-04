@@ -7,6 +7,9 @@
     "require": {
         "php": "^8.0.2",
         "barryvdh/laravel-dompdf": "^1.0",
+        "botman/botman": "^2.8",
+        "botman/driver-telegram": "^2.0",
+        "botman/driver-web": "^1.5",
         "doctrine/dbal": "^3.3",
         "elibyy/tcpdf-laravel": "^9.0",
         "guzzlehttp/guzzle": "^7.4",

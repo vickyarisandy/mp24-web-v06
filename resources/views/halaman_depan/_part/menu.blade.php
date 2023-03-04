@@ -15,11 +15,11 @@
          <!-- MENU LINKS -->
          <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
-                   
+
                    @if (Auth::check())
                    <li>
-                         <a href="{{ route('beranda') }}" class="smoothScroll">Beranda 
-                              <span class="badge badge-info">{{ $datas['total_notif'] }}</span>
+                         <a href="{{ route('beranda') }}" class="smoothScroll">Beranda
+
                          </a>
                     </li>
                    <li><a href="{{ route('profil') }}" class="smoothScroll">Profil</a></li>
@@ -44,7 +44,7 @@
                    <li><a href="{{ route('home') }}" class="smoothScroll">Home</a></li>
                    <li class="appointment-btn"><a href="#appointment">Buat Janji</a></li>
                    <li class="appointment-btn"><a href="{{ route('login') }}">login</a></li>
-                   @else 
+                   @else
                    <li><a href="#top" class="smoothScroll">Home</a></li>
                    <li><a href="#about" class="smoothScroll">About Us</a></li>
                    <li><a href="#team" class="smoothScroll">Doctors</a></li>

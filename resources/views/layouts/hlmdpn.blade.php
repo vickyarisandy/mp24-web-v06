@@ -26,10 +26,12 @@ http://www.tooplate.com/view/2098-health
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="{{ asset('depan/css/tooplate-style.css') }}">
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/assets/css/chat.min.css">
+
      {{-- panggil --}}
           @stack('panggil_css')
      {{-- panggil --}}
-    
+
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -44,17 +46,17 @@ http://www.tooplate.com/view/2098-health
 
      <!-- HEADER -->
      @include('halaman_depan/_part/header')
-    
+
 
      <!-- MENU -->
      @include('halaman_depan/_part/menu')
      {{-- batas --}}
 
      @yield('konten_depan')
-   
+
      <!-- FOOTER -->
      @include('halaman_depan/_part/footer')
-     
+
 
      <!-- SCRIPTS -->
      <script src="{{ asset('depan/js/jquery.js') }}"></script>
@@ -112,6 +114,20 @@ http://www.tooplate.com/view/2098-health
 			var year = (yy < 1000) ? yy + 1900 : yy;
 			// document.write(thisDay + ', ' + day + ' ' + months[month] + ' ' + year);
 		</script>
+    <script>
+        var botmanWidget = {
+            title:'pesan',
+            aboutText: 'citra medika persada 24',
+            introMessage: "✋ Haloo! perkenalkan saya Helpdesk. mulai layanan : <br><br>'mulai',<br>'keluhan',<br>'tentang' ",
+            mainColor:'#c02026',
+            bubbleBackground:'#c02026',
+            headerTextColor: '#fff',
+
+        };
+    </script>
+
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 
 {{-- panggil --}}
 @stack('panggil_js')
